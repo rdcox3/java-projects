@@ -1,0 +1,34 @@
+// Prompt the user for the current population
+currentPopulation = Input("Enter the current population: ")
+
+// Prompt the user for the birth rate per year
+birthRatePerYear = Input("Enter the birth rate per year (in seconds): ")
+
+// Prompt the user for the death rate per year
+deathRatePerYear = Input("Enter the death rate per year (in seconds): ")
+
+// Prompt the user for the immigration rate per year
+immigrationRatePerYear = Input("Enter the immigration rate per year (in seconds): ")
+
+// Initialize variables for year and population
+year = 0
+population = currentPopulation
+
+// Loop for the next five years
+for i from 1 to 5:
+    // Calculate the number of births, deaths, and immigrants in one year
+    births = (365 * 24 * 60 * 60) / birthRatePerYear
+    deaths = (365 * 24 * 60 * 60) / deathRatePerYear
+    immigrants = (365 * 24 * 60 * 60) / immigrationRatePerYear
+    
+    // Calculate the net population change for one year
+    populationChange = births - deaths + immigrants
+    
+    // Update the population for the next year
+    population = population + populationChange
+    
+    // Display the population for the current year
+    Print("Year " + year + ": " + population)
+    
+    // Increment the year
+    year = year + 1
